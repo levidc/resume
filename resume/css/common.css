@@ -1,0 +1,362 @@
+a, b, body, dd, del, div, dl, dt, em, form, h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, label, legend, li, ol, p, pre, small, span, strong, u, ul, var, input {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+img,button,input {
+    border: 0;
+}
+em, i, u {
+    font-style: normal;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    *zoom: 1;
+}
+body {
+    font: 12px/1.5 'microsoft yahei',Arial, Verdana, "\5b8b\4f53";
+    color: #666;
+}
+a {
+    color: #666;
+    text-decoration: none;
+    font-family: 'microsoft yahei';
+}
+a:hover {
+    color: #c81623;
+}
+/* 版心公共类 */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+.ml-5 {
+    margin-left: 5px;
+}
+.mr-5 {
+    margin-right: 5px;
+}
+.mt-5 {
+    margin-top: 5px;
+}
+.mb-5 {
+    margin-bottom: 5px;
+}
+.pl-5 {
+    padding-left: 5px;
+}
+.pr-5 {
+    padding-right: 5px;
+}
+.pt-5 {
+    padding-top: 5px;
+}
+.pd-5 {
+    padding-bottom: 5px;
+}
+.m-color {
+    color: #c81623;
+}
+img {
+    vertical-align: top;
+    border：0;
+}
+.text-cut {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*公共头部区域*/
+header{
+    border-bottom: 1px solid #b1191a;
+}
+.top-nav{
+    line-height: 32px;
+    background-color: #f1f1f1;
+}
+.top-nav .container{
+}
+.tn-l{
+    height: 32px;
+}
+.tn-r{
+    height: 32px;
+}
+.tn-r li{
+    float: left;
+}
+.tn-r li.line{
+        width: 1px;
+        height: 12px;
+        background-color: #666;
+        margin:10px 15px 0;
+}
+.tn-r li span{
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+}
+.logo{
+    padding-top: 25px;
+    padding-bottom: 20px;
+    position: relative;
+
+}
+.logo-wrapper{
+    width: 171px;
+    height: 62px;
+    background:  url(../images/logo.png) 0 0 no-repeat;
+    position: relative;
+}
+.logo-wrapper h1{
+    font-size: 0;
+}
+.search-wrapper{
+    position: absolute;
+    top: 25px;
+    left:348px;
+}
+.search-wrapper input{
+    width:452px ;
+    height:32px ;
+    border: 2px solid #b1191a;
+    float: left;
+    text-indent: 10px;
+}
+.search-wrapper button {
+    width: 80px;
+    height: 36px;
+    background-color: #b1191a;
+    float: left;
+}
+.search-wrapper button span{
+    font-size: 26px;
+    color: #fff;
+
+}
+.cart-wrapper{
+    width: 138px;
+    height: 34px;
+    position:absolute;
+    top:25px ;
+    right:60px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 34px;
+    z-index: 999;
+}
+.cart-wrapper .count{  /*1不建议直接使用宽高。添加padding
+                       2使用left定位更合适，字数右边延伸*/
+    line-height: 14px;
+    padding: 2px 4px;
+    position: absolute;
+    top: -10px;
+    left: 105px;
+    color: #fff;
+    border-radius: 10px 10px 10px 0;
+    background-color:red;
+}
+.white-box{
+    width: 138px;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    top: -2px;
+}
+.cart-wrapper .cart-info{
+    width: 310px;
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    right: -1px;
+    top: 33px;
+    display: none;
+    line-height: 70px;
+}
+.cart-wrapper:hover .cart-info{
+    display: block;
+}
+.search-hot{
+    position: absolute;
+    top:60px;
+    left: 348px; 
+}
+.search-hot a{
+    margin-right: 20px;
+    line-height: 30px;
+}
+/*main-top*/
+.pro-classify{
+    width: 210px;
+    height: 46px;
+    background-color: #b1191a;
+    text-align: center;
+    line-height: 46px;
+    color: #fff;
+    font-size: 16px;
+    position: relative;
+}
+.pro-nav li{
+    margin-left: 55px;
+    float: left;
+    line-height: 46px;
+    font-size: 16px;
+    height: 46px;
+    position: relative;
+}
+.hot{
+    position: absolute;
+    top:-10px;
+    left: 32px;
+    padding: 3px 15px;
+    color: #fff;
+    background-color: #b1191a;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: 10px 10px 10px 0;
+}
+/*下拉商品*/
+.drop-down{
+    width:210px ;
+    height: 465px;
+    background-color: #c81623;
+    position: absolute;
+    top: 46px;
+    left: 0;
+    z-index: 99;
+}
+.drop-down li{
+    height: 31px;
+    line-height: 31px;
+    text-align: left;
+    text-indent: 10px;
+    position: relative;
+}
+.drop-down ul{
+    border-left: 1px solid #b1191a;
+    border-bottom: 1px solid #b1191a;
+}
+.drop-down li a{
+    color: #fff;
+}
+.drop-down li .iconfont{
+    position: absolute;
+    right:20px;
+    top: 0;
+}
+.drop-down li:hover {
+    background-color: #fff;
+}
+.drop-down li:hover a{
+    color: #666;
+}
+.drop-down li:hover span{
+    color: #666;
+}
+/*底部区域 */
+.footer {
+    background-color: #f5f5f5;
+}
+.footer-h {
+    border-bottom: 1px solid #ededed;
+}
+.footer-h li {
+    position: relative;
+    width: 20%;
+    height: 109px;
+    float: left;
+    text-indent: 95px;
+}
+.footer-h li h3 {
+    margin-top: 33px;
+}
+.footer-h .icon {
+    width: 49px;
+    height: 49px;
+    position: absolute;
+    left: 38px;
+    top: 50%;
+    margin-top: -25px;
+    background:  url(../images/icons.png) -253px -3px no-repeat;
+}
+.foot-b dl{
+    float: left;
+    width: 16.66666%;
+    text-indent: 55px;
+}
+.foot-b {
+    margin-top: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+.foot-b dl dt{
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+}   
+.foot-b dl dd{
+    height: 20px;
+    line-height:20px;
+}
+.foot-b dl.help dd{
+    height: auto;
+}
+.foot-b dl.help{
+    text-align: center;
+}
+.footer-f {
+    height: 100px;
+}
+.footer-nav {
+    text-align: center;
+}
+.footer-nav .line {
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 3;
+}
+.footer-f p {
+    text-align: center;
+    margin-top: 5px;
+}
+/*公共的分页模块*/
+.page-wrapper{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.page{
+    display: inline-block;
+    padding:10px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+.page-wrapper{
+    text-align: center;
+}
+.page-wrapper .no-border{
+    border: none;
+}
+.page-wrapper [type=number]{
+    width: 44px;
+    height: 40px;
+    outline: none;
+    border: 1px solid #ccc;
+    margin: 0 5px;
+    text-align: center;
+}

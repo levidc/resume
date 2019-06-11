@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		body {
+			position: relative;
+			width: 1300px;
+			height: 550px;
+		}
+
+		.f {
+			width: 700px;
+			height: 500px;
+			position: absolute;
+			background: url(images/01.jpg) center no-repeat;
+			background-size: cover;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+
+		.f::before {
+			content: '';
+			width: 15px;
+			height: 100%;
+			position: absolute;
+			left: -200px;
+			top: 0;
+
+			background-image: linear-gradient(to right,
+				rgba(255, 255, 255, 0),
+				rgba(255, 255, 255, 1),
+				rgba(255, 255, 255, 0));
+			transform: skewX(-20deg);
+		}
+
+		body:hover>::before {
+			left: 900px;
+			transition: all 2s;
+	
+		}
+
+
+		.b {
+
+			height: 300px;
+			position: relative;
+			width: 400px;
+			margin: 0 auto;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.b::before {
+			content: "";
+			background: url(images/03.jpg);
+			background-position: center;
+			opacity: 0.8;
+			z-index: -1;
+			width: 400px;
+			height: 300px;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			border-radius: 40px;
+		}
+
+		img {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translateX(-50%) translateY(-50%);
+		}
+
+		.b:hover img {
+			display: none;
+		}
+
+		input {
+			display: inline-block;
+			width: 250px;
+			height: 30px;
+			border-radius: 10px;
+
+		}
+
+		form {
+			display: block;
+			width: 400px;
+			height: 300px;
+			text-align: center;
+			overflow: hidden;
+		}
+
+		input[type="submit"] {
+			width: 326px;
+			height: 33px;
+			background-color: #f40;
+			margin-top: 30px;
+			padding: 0;
+			border: none;
+		}
+
+		form div {
+			margin-top: 30px;
+
+		}
+
+		form>span {
+			display: block;
+			margin: 30px -100px 50px;
+			position: relative;
+			left: -115px;
+			font-weight: bold;
+			font-size: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="f">
+
+		<div class="b">
+			<img src="images/1.jpg" alt="" width="200px">
+			<form action="">
+				<span>账户登录</span>
+				<div>
+					<span>用户名:</span>
+					<input type="text" placeholder="  练习 各种 居中 再延伸">
+				</div>
+				<div>
+					<label for="">
+						<span>密 码:</span> &nbsp;
+						<input type="password" placeholder="结果涉及BFC半透明等问题 T.T">
+					</label>
+
+				</div>
+
+				<input type="submit" value="登陆">
+			</form>
+		</div>
+	</div>
+	<script>
+		var body=document.body;
+	body.onmouseenter=function(){
+		console.log(1);
+		
+	}
+	</script>
+</body>
+
+</html>

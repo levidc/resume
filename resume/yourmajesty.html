@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	<link rel="stylesheet" href="css/music.css">
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_1466528817_8676143.css">
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	<title>Player</title>
+</head>
+<body>
+	<img class="bg" src="img-music/bg.jpg" alt="">
+	<div class="wrapper">
+		<div class="background">
+			<div class="background1 show" data-index='0'></div>
+			<div class="background2 hide" data-index='1'></div>
+			<div class="background3 hide" data-index='2'></div>
+		</div>
+		<div class="content">
+			<audio  >
+				<source title="   BohemianRhapsody " src="song/Queen - Bohemian Rhapsody.mp3" >
+				<source title="  KillerQueen  " src="song/Queen - Killer Queen.mp3">
+				<source title=" FriendsWillBeFriends " src="song/Queen - Friends Will Be Friends.mp3">
+			</audio>
+			<div class="music-massage">
+				<p class="musicname"> Bohemian Rhapsody</p>
+				<p class="musicer">Queen </p>
+				<p class="record">mp3</p>
+			</div>
+			<div class="music-icon">
+				<a class="m-icon m-fenxiang colored"
+					href="http://service.weibo.com/share/share.php?title=#_loginLayer_1466697157538" target="new"></a>
+				<span class="m-icon m-star colored"></span>
+				<span class="m-icon m-heart colored"></span>
+			</div>
+		</div>
+		<span class="basebar">
+			<span class="progressbar"></span>
+		</span>
+		<div class="controls">
+			<div class="play-control">
+				<span class="m-icon m-play btn1"></span>
+				<span class="m-icon m-prev btn2"></span>
+				<span class="m-icon m-next btn3"></span>
+				<i class="volume fa fa-volume-up">
+					<input class="range-volume" type="range" value="30" >
+				</i>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script>
+		//播放控制
+		var myAudio = $("audio")[0];
+		var $sourceList = $("source");
+		var currentSrcIndex = 0;
+		var currentSr = "";
+		var rangeVolume = document.querySelector(".range-volume");
+		var volume = document.querySelector(".volume");
+
+		$(".btn1").click(function () {
+			if (myAudio.paused) {
+				myAudio.play();
+				$(this).removeClass('m-play').addClass('m-pause');
+			} else {
+				myAudio.pause();
+				$(this).removeClass('m-pause').addClass('m-play');
+			}
+		});
+		$(".btn3").click(function () {
+			next()
+		});
+		$(".btn2").click(function () {
+			prev()
+		});
+		function next() {
+			++currentSrcIndex > $sourceList.length - 1 && (currentSrcIndex = 0);
+			change()
+			$('.btn1').removeClass('m-play').addClass('m-pause');
+		}
+		function prev() {
+			--currentSrcIndex < 0 && (currentSrcIndex = $sourceList.length - 1);
+			change()
+			$('.btn1').removeClass('m-play').addClass('m-pause');
+		}
+		function change() {
+			currentSrc = $("source").eq(currentSrcIndex).prop("src");
+			var title = $("source").eq(currentSrcIndex).prop("title").split(/\.|-/);
+			$('.musicname').text(title[0]);
+			$('.musicer').text(title[1]);
+			$('.record').text(title[2]);
+			console.log();
+			
+			myAudio.src = currentSrc;
+			myAudio.play();
+			$('.background').children().eq(currentSrcIndex).addClass('show').removeClass('hide').siblings().addClass('hide').removeClass('show')
+		}
+		//进度条控制
+		setInterval(present, 500)
+		$(".basebar").mousedown(function (ev) {
+			var posX = ev.clientX;
+			var targetLeft = $(this).offset().left;
+			var percentage = (posX - targetLeft) / 180 * 100;
+			myAudio.currentTime = myAudio.duration * percentage / 100;
+		});
+		function present() {
+			var length = myAudio.currentTime / myAudio.duration * 100;
+			$('.progressbar').width(length + '%');
+			if (myAudio.currentTime == myAudio.duration) {
+				next()
+			}
+		}
+		//icon
+		$('.m-star').on('click', function () {
+			$(this).toggleClass('stared').toggleClass('colored')
+		})
+		$('.m-heart').on('click', function () {
+			$(this).toggleClass('loved').toggleClass('colored')
+		})
+		rangeVolume.addEventListener("change", function () {
+			// 根据滑块的值, 设置 video 的音量
+			myAudio.volume = rangeVolume.value / 100;
+
+			// 如果音量 == 0, 就切换类
+			if (myAudio.volume == 0) {
+				// 没有声音了
+				volume.classList.remove("fa-volume-up");
+				volume.classList.add("fa-volume-off");
+				
+			}    
+			else {
+				// 有声音
+				volume.classList.add("fa-volume-up");
+				volume.classList.remove("fa-volume-off");
+			}
+		});
+
+	</script>
+</body>
+
+</html>
